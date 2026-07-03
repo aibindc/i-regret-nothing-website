@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  @font-face{font-family:'French Aperitif';src:url('assets/FrenchAperitif-Regular.ttf') format('truetype');font-weight:400;font-display:swap}
+  @font-face{font-family:'French Aperitif';src:url('assets/FrenchAperitif-Bold.ttf') format('truetype');font-weight:700;font-display:swap}
+  @font-face{font-family:'DM Mono';src:url('assets/DMMono-Regular.ttf') format('truetype');font-weight:400;font-display:swap}
+  @font-face{font-family:'DM Mono';src:url('assets/DMMono-Medium.ttf') format('truetype');font-weight:500;font-display:swap}
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:#FAF7EF;color:#161513;font-family:Archivo,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+  ::selection{background:#E8451E;color:#fff}
+  a{color:inherit}
+  input::placeholder{color:#a8a196}
+</style>
+</helmet>
+
+<div style="min-height:100vh;display:flex;flex-direction:column;overflow-x:hidden">
+
+  <!-- NAV -->
+  <nav style="position:sticky;top:0;z-index:50;background:rgba(250,247,239,.92);backdrop-filter:blur(6px);border-bottom:2px dashed #161513;display:flex;align-items:center;justify-content:space-between;padding:16px clamp(20px,5vw,56px)">
+    <a href="Home.dc.html" style="font-family:'French Aperitif';font-weight:700;font-size:24px;text-decoration:none">i regret <span style="color:#E8451E">nothing</span></a>
+    <div style="display:flex;align-items:center;gap:clamp(14px,2.5vw,30px);font-family:'DM Mono';font-size:14px">
+      <a href="The Show.dc.html" style="text-decoration:none" style-hover="color:#E8451E">the show</a>
+      <a href="Team.dc.html" style="text-decoration:none" style-hover="color:#E8451E">team</a>
+      <a href="Tickets.dc.html" style="text-decoration:none" style-hover="color:#E8451E">tickets</a>
+      <a href="Updates.dc.html" style="text-decoration:none;color:#E8451E;border-bottom:2px solid #E8451E;padding-bottom:2px">updates</a>
+      <a href="Tickets.dc.html" style="text-decoration:none;background:#E8451E;color:#fff;padding:9px 18px;font-weight:500;transform:rotate(-2deg);display:inline-block" style-hover="transform:rotate(0deg)">get tickets!</a>
+    </div>
+  </nav>
+
+  <!-- MAIN -->
+  <section style="flex:1;display:flex;align-items:center;justify-content:center;padding:clamp(40px,7vw,96px) clamp(20px,5vw,56px)">
+    <div style="max-width:1000px;width:100%;display:grid;grid-template-columns:minmax(0,1fr) clamp(220px,30%,300px);gap:clamp(28px,6vw,64px);align-items:center">
+      <div>
+        <div style="font-family:'DM Mono';font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:#7c766a;margin-bottom:16px">stay in the loop</div>
+        <h1 style="font-family:'French Aperitif';font-weight:700;font-size:clamp(40px,6.5vw,80px);line-height:.98;margin:0">Don't regret missing it.</h1>
+        <p style="font-size:clamp(16px,1.5vw,19px);line-height:1.7;color:#2e2c27;margin:20px 0 28px;max-width:52ch">Join the list and we'll email you when tickets go on sale, plus the occasional note from Sara as the show comes together. No spam, no oversharing — well, some oversharing, but only the good kind.</p>
+
+        <!-- FORM -->
+        <sc-if value="{{ subscribed }}" hint-placeholder-val="{{ false }}">
+          <div style="border:2px solid #1f8a4c;background:#fff;padding:24px 26px;transform:rotate(-.6deg);max-width:460px">
+            <div style="font-family:'French Aperitif';font-weight:700;font-size:30px;color:#1f8a4c;line-height:1">You're on the list! ✓</div>
+            <p style="font-family:'DM Mono';font-size:14px;color:#2e2c27;margin:10px 0 0;line-height:1.6">{{ successMsg }}</p>
+          </div>
+        </sc-if>
+        <sc-if value="{{ notSubscribed }}" hint-placeholder-val="{{ true }}">
+          <div style="max-width:460px">
+            <div style="display:flex;border:2px solid #161513;background:#fff">
+              <input value="{{ email }}" onInput="{{ onEmail }}" placeholder="you@email.com" style="flex:1;border:none;background:transparent;color:#161513;padding:15px 16px;font-size:15px;outline:none;font-family:'DM Mono'"/>
+              <button onClick="{{ submit }}" style="background:#E8451E;color:#fff;border:none;padding:0 24px;font-family:'French Aperitif';font-weight:700;font-size:20px;cursor:pointer" style-hover="background:#161513">join!</button>
+            </div>
+            <div style="font-family:'DM Mono';font-size:13px;color:{{ hintColor }};margin-top:10px;min-height:18px">{{ hint }}</div>
+          </div>
+        </sc-if>
+      </div>
+
+      <!-- taped illustration -->
+      <div style="position:relative;transform:rotate(2deg);justify-self:center">
+        <div style="position:absolute;top:-16px;left:50%;margin-left:-56px;width:112px;height:26px;background:rgba(232,69,30,.32);transform:rotate(-4deg);z-index:2"></div>
+        <div style="background:#fff;border:2px solid #161513;padding:14px;box-shadow:6px 8px 0 rgba(22,21,19,.14)">
+          <img src="assets/sara-paintbrush.png" alt="Sara Polon" style="display:block;width:100%;max-width:240px"/>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MINI DETAILS BAR -->
+  <div style="background:#161513;color:#FAF7EF;text-align:center;padding:16px;font-family:'French Aperitif';font-weight:700;font-size:clamp(18px,2.4vw,24px)">SEPT 1–3 2026 <span style="color:#E8451E">·</span> NATIONAL UNION BUILDING <span style="color:#E8451E">·</span> WASHINGTON D.C.</div>
+
+  <!-- FOOTER -->
+  <footer style="background:#FAF7EF;color:#161513;border-top:2px dashed #161513">
+    <div style="max-width:1240px;margin:0 auto;padding:clamp(30px,4vw,44px) clamp(20px,5vw,56px);display:flex;flex-wrap:wrap;gap:20px;align-items:center;justify-content:space-between;font-family:'DM Mono';font-size:14px">
+      <div style="display:flex;gap:22px;flex-wrap:wrap">
+        <a href="Home.dc.html" style="text-decoration:none" style-hover="color:#E8451E">home</a>
+        <a href="The Show.dc.html" style="text-decoration:none" style-hover="color:#E8451E">the show</a>
+        <a href="Team.dc.html" style="text-decoration:none" style-hover="color:#E8451E">team</a>
+        <a href="Tickets.dc.html" style="text-decoration:none" style-hover="color:#E8451E">tickets</a>
+      </div>
+      <div style="color:#7c766a">© 2026 I Regret Nothing · a show by Sara Polon</div>
+    </div>
+  </footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { email: '', subscribed: false, hint: '', bad: false };
+
+  renderVals() {
+    const valid = (e) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e.trim());
+    return {
+      email: this.state.email,
+      subscribed: this.state.subscribed,
+      notSubscribed: !this.state.subscribed,
+      hint: this.state.hint,
+      hintColor: this.state.bad ? '#E8451E' : '#7c766a',
+      successMsg: "We'll be in touch the second tickets go live. In the meantime — go easy on yourself.",
+      onEmail: (e) => this.setState({ email: e.target.value, hint: '', bad: false }),
+      submit: () => {
+        if (!valid(this.state.email)) {
+          this.setState({ hint: 'hmm, that email looks off — try again?', bad: true });
+        } else {
+          this.setState({ subscribed: true });
+        }
+      },
+    };
+  }
+}
+</script>
+</body>
+</html>

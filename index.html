@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+  @font-face{font-family:'French Aperitif';src:url('assets/FrenchAperitif-Regular.ttf') format('truetype');font-weight:400;font-display:swap}
+  @font-face{font-family:'French Aperitif';src:url('assets/FrenchAperitif-Bold.ttf') format('truetype');font-weight:700;font-display:swap}
+  @font-face{font-family:'DM Mono';src:url('assets/DMMono-Regular.ttf') format('truetype');font-weight:400;font-display:swap}
+  @font-face{font-family:'DM Mono';src:url('assets/DMMono-Medium.ttf') format('truetype');font-weight:500;font-display:swap}
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:#FAF7EF;color:#161513;font-family:Archivo,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+  ::selection{background:#E8451E;color:#fff}
+  a{color:inherit}
+  input::placeholder{color:rgba(255,255,255,.5)}
+  @keyframes irn-marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+</style>
+</helmet>
+
+<div style="min-height:100vh;display:flex;flex-direction:column;overflow-x:hidden">
+
+  <!-- ===================== NAV ===================== -->
+  <nav style="position:sticky;top:0;z-index:50;background:rgba(250,247,239,.92);backdrop-filter:blur(6px);border-bottom:2px dashed #161513;display:flex;align-items:center;justify-content:space-between;padding:16px clamp(20px,5vw,56px)">
+    <a href="Home.dc.html" style="font-family:'French Aperitif';font-weight:700;font-size:24px;text-decoration:none;letter-spacing:.01em">i regret <span style="color:#E8451E">nothing</span></a>
+    <div style="display:flex;align-items:center;gap:clamp(14px,2.5vw,30px);font-family:'DM Mono';font-size:14px">
+      <a href="The Show.dc.html" style="text-decoration:none" style-hover="color:#E8451E">the show</a>
+      <a href="Team.dc.html" style="text-decoration:none" style-hover="color:#E8451E">team</a>
+      <a href="Tickets.dc.html" style="text-decoration:none" style-hover="color:#E8451E">tickets</a>
+      <a href="Updates.dc.html" style="text-decoration:none" style-hover="color:#E8451E">updates</a>
+      <a href="Tickets.dc.html" style="text-decoration:none;background:#E8451E;color:#fff;padding:9px 18px;font-weight:500;transform:rotate(-2deg);display:inline-block" style-hover="transform:rotate(0deg)">get tickets!</a>
+    </div>
+  </nav>
+
+  <!-- ===================== HERO ===================== -->
+  <header style="position:relative;padding:clamp(36px,6vw,72px) clamp(20px,5vw,56px) clamp(30px,4vw,52px);max-width:1240px;margin:0 auto;width:100%">
+    <div style="display:grid;grid-template-columns:minmax(0,1fr) clamp(240px,30%,360px);gap:clamp(24px,5vw,56px);align-items:center">
+      <div>
+        <div style="font-family:'DM Mono';font-size:15px;color:#E8451E;margin-bottom:20px;transform:rotate(-1deg);display:inline-block">a one-woman show ↓</div>
+        <img src="assets/title.png" alt="I Regret Nothing — him, the debt, shame, the job, everything" style="width:100%;max-width:640px;display:block">
+        <div style="display:flex;flex-wrap:wrap;align-items:center;gap:18px;margin-top:clamp(26px,4vw,40px)">
+          <a href="Tickets.dc.html" style="text-decoration:none;background:#E8451E;color:#fff;font-family:'French Aperitif';font-weight:700;font-size:22px;padding:14px 30px;transform:rotate(-1.5deg);display:inline-block;box-shadow:4px 5px 0 rgba(22,21,19,.9)" style-hover="transform:rotate(0deg) translateY(-1px)">grab tickets →</a>
+          <div style="font-family:'DM Mono';font-size:15px;line-height:1.5">Sept 1–3, 2026<br><span style="color:#7c766a">Washington, D.C.</span></div>
+        </div>
+      </div>
+
+      <!-- taped illustration -->
+      <div style="position:relative;justify-self:center;transform:rotate(2deg)">
+        <div style="position:absolute;top:-16px;left:50%;margin-left:-60px;width:120px;height:28px;background:rgba(232,69,30,.32);transform:rotate(-4deg);z-index:2"></div>
+        <div style="background:#fff;border:2px solid #161513;padding:14px 14px 10px;box-shadow:6px 8px 0 rgba(22,21,19,.14)">
+          <img src="assets/sara-paintbrush.png" alt="Sara Polon, paintbrush in hand, cat at her feet" style="display:block;width:100%;max-width:280px">
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===================== DATE MARQUEE ===================== -->
+  <div style="background:#161513;color:#FAF7EF;overflow:hidden;white-space:nowrap;padding:12px 0">
+    <div style="display:inline-flex;gap:36px;align-items:center;font-family:'French Aperitif';font-weight:700;font-size:22px;padding-right:36px;animation:irn-marquee 26s linear infinite">
+      <span>SEPT 1–3 2026</span><span style="color:#E8451E">✦</span><span>NATIONAL UNION BUILDING</span><span style="color:#E8451E">✦</span><span>WASHINGTON D.C.</span><span style="color:#E8451E">✦</span>
+      <span>SEPT 1–3 2026</span><span style="color:#E8451E">✦</span><span>NATIONAL UNION BUILDING</span><span style="color:#E8451E">✦</span><span>WASHINGTON D.C.</span><span style="color:#E8451E">✦</span>
+    </div>
+  </div>
+
+  <!-- ===================== THE SHOW ===================== -->
+  <section style="max-width:1240px;margin:0 auto;width:100%;padding:clamp(44px,6vw,84px) clamp(20px,5vw,56px)">
+    <div style="display:grid;grid-template-columns:minmax(0,1fr) clamp(220px,26%,300px);gap:clamp(28px,5vw,56px);align-items:start">
+      <div>
+        <div style="font-family:'DM Mono';font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:#7c766a;margin-bottom:14px">the show</div>
+        <h2 style="font-family:'French Aperitif';font-weight:700;font-size:clamp(34px,5vw,54px);line-height:1.02;margin:0 0 22px;max-width:16ch">A story about the things we put up with.</h2>
+        <p style="font-size:clamp(16px,1.4vw,19px);line-height:1.75;max-width:60ch;color:#2e2c27;margin:0 0 18px">It's about the things people tolerate in relationships they never should've been in — and the shame that lingers long after. Sara's bet is simple: tell the truth out loud, and maybe everyone in the room feels a little less alone, and a lot less ashamed of things that were never theirs to carry.</p>
+        <a href="The Show.dc.html" style="font-family:'DM Mono';font-size:15px;color:#E8451E;text-decoration:none;border-bottom:2px solid #E8451E;padding-bottom:2px">read what it's really about →</a>
+      </div>
+      <div style="font-family:'French Aperitif';font-size:19px;line-height:1.35;color:#E8451E;transform:rotate(1.5deg);border-left:3px solid #E8451E;padding:4px 0 4px 16px;margin-top:36px">his name in her phone was <span style="font-weight:700">"Macho Gazpacho."</span> that's all you need to know.</div>
+    </div>
+  </section>
+
+  <!-- ===================== TICKETS TEASER ===================== -->
+  <section style="background:#161513;color:#FAF7EF">
+    <div style="max-width:1240px;margin:0 auto;padding:clamp(44px,6vw,80px) clamp(20px,5vw,56px)">
+      <div style="display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-bottom:30px">
+        <h2 style="font-family:'French Aperitif';font-weight:700;font-size:clamp(32px,4.5vw,48px);margin:0">One price. Three nights.</h2>
+        <span style="font-family:'DM Mono';font-size:13px;color:rgba(250,247,239,.6)">tickets drop july 15</span>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px">
+        <div style="border:2px solid #E8451E;padding:26px 24px;transform:rotate(-.8deg);background:#E8451E;color:#fff">
+          <div style="font-family:'DM Mono';font-size:12px;letter-spacing:.1em;text-transform:uppercase;opacity:.9">early bird · through aug 1</div>
+          <div style="font-family:'French Aperitif';font-weight:700;font-size:52px;line-height:1;margin:6px 0 6px">$18</div>
+          <div style="font-family:'DM Mono';font-size:13px;opacity:.9">general admission · any night</div>
+        </div>
+        <div style="border:2px solid rgba(250,247,239,.3);padding:26px 24px;transform:rotate(.7deg);background:#1d1b18">
+          <div style="font-family:'DM Mono';font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:rgba(250,247,239,.6)">after aug 1</div>
+          <div style="font-family:'French Aperitif';font-weight:700;font-size:52px;color:#E8451E;line-height:1;margin:6px 0 6px">$25</div>
+          <div style="font-family:'DM Mono';font-size:13px;color:rgba(250,247,239,.65)">general admission · any night</div>
+        </div>
+      </div>
+      <a href="Tickets.dc.html" style="display:inline-block;margin-top:28px;font-family:'French Aperitif';font-weight:700;font-size:20px;background:#FAF7EF;color:#161513;text-decoration:none;padding:12px 26px;transform:rotate(-1deg)" style-hover="transform:rotate(0deg)">ticket details →</a>
+    </div>
+  </section>
+
+  <!-- ===================== TEAM TEASER ===================== -->
+  <section style="max-width:1240px;margin:0 auto;width:100%;padding:clamp(44px,6vw,80px) clamp(20px,5vw,56px)">
+    <div style="font-family:'DM Mono';font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:#7c766a;margin-bottom:14px">who's behind it</div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:28px">
+      <div style="border:2px solid #161513;background:#fff;padding:26px;transform:rotate(-.5deg)">
+        <div style="font-family:'French Aperitif';font-weight:700;font-size:30px">Sara Polon</div>
+        <div style="font-family:'DM Mono';font-size:13px;color:#E8451E;margin:4px 0 12px">writer &amp; performer</div>
+        <p style="font-size:16px;line-height:1.65;color:#2e2c27;margin:0">CEO. Entrepreneur. Founder of Soupergirl. Former stand-up comic. Finally telling the story she spent two decades living.</p>
+      </div>
+      <div style="border:2px solid #161513;background:#fff;padding:26px;transform:rotate(.6deg)">
+        <div style="font-family:'French Aperitif';font-weight:700;font-size:30px">Anna Brosowsky</div>
+        <div style="font-family:'DM Mono';font-size:13px;color:#E8451E;margin:4px 0 12px">director &amp; producer</div>
+        <p style="font-size:16px;line-height:1.65;color:#2e2c27;margin:0">DC native. McGill grad. Director / producer / stage manager. Bringing Sara's story to life.</p>
+      </div>
+    </div>
+    <a href="Team.dc.html" style="display:inline-block;margin-top:22px;font-family:'DM Mono';font-size:15px;color:#E8451E;text-decoration:none;border-bottom:2px solid #E8451E;padding-bottom:2px">meet the team →</a>
+  </section>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer style="margin-top:auto;background:#161513;color:#FAF7EF;border-top:6px solid #E8451E">
+    <div style="max-width:1240px;margin:0 auto;padding:clamp(40px,5vw,64px) clamp(20px,5vw,56px);display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:36px">
+      <div>
+        <div style="font-family:'French Aperitif';font-weight:700;font-size:28px;max-width:14ch">Don't regret missing it.</div>
+        <p style="font-family:'DM Mono';font-size:13px;color:rgba(250,247,239,.65);margin:10px 0 16px">on-sale dates + show news, no spam.</p>
+        <div style="display:flex;border:2px solid #FAF7EF;max-width:360px">
+          <input placeholder="you@email.com" style="flex:1;border:none;background:transparent;color:#FAF7EF;padding:12px 14px;font-size:14px;outline:none;font-family:'DM Mono'">
+          <a href="Updates.dc.html" style="background:#E8451E;color:#fff;padding:12px 18px;font-family:'French Aperitif';font-weight:700;font-size:17px;text-decoration:none;display:flex;align-items:center">join!</a>
+        </div>
+      </div>
+      <div style="font-family:'DM Mono';font-size:14px;line-height:1.9">
+        <div style="color:rgba(250,247,239,.55);text-transform:uppercase;letter-spacing:.12em;font-size:12px;margin-bottom:6px">the details</div>
+        September 1–3, 2026<br>National Union Building<br>918 F St NW, Washington, D.C.
+      </div>
+      <div style="font-family:'DM Mono';font-size:14px;line-height:1.9">
+        <div style="color:rgba(250,247,239,.55);text-transform:uppercase;letter-spacing:.12em;font-size:12px;margin-bottom:6px">explore</div>
+        <a href="The Show.dc.html" style="text-decoration:none;display:block" style-hover="color:#E8451E">the show</a>
+        <a href="Team.dc.html" style="text-decoration:none;display:block" style-hover="color:#E8451E">team</a>
+        <a href="Tickets.dc.html" style="text-decoration:none;display:block" style-hover="color:#E8451E">tickets</a>
+        <a href="Updates.dc.html" style="text-decoration:none;display:block" style-hover="color:#E8451E">updates</a>
+      </div>
+    </div>
+    <div style="border-top:1px solid rgba(250,247,239,.15);padding:18px clamp(20px,5vw,56px);font-family:'DM Mono';font-size:12px;color:rgba(250,247,239,.5)">© 2026 I Regret Nothing · a show by Sara Polon</div>
+  </footer>
+
+</div>
+</x-dc>
+<template id="__bundler_thumbnail" data-bg-color="#FAF7EF">
+  <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+    <rect width="1200" height="800" fill="#FAF7EF"/>
+    <text x="600" y="360" font-family="Georgia,serif" font-style="italic" font-weight="700" font-size="150" fill="#161513" text-anchor="middle">I Regret</text>
+    <text x="600" y="510" font-family="Georgia,serif" font-style="italic" font-weight="700" font-size="150" fill="#E8451E" text-anchor="middle">Nothing</text>
+  </svg>
+</template>
+</body>
+</html>

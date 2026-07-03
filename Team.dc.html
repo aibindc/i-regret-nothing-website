@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+  @font-face{font-family:'French Aperitif';src:url('assets/FrenchAperitif-Regular.ttf') format('truetype');font-weight:400;font-display:swap}
+  @font-face{font-family:'French Aperitif';src:url('assets/FrenchAperitif-Bold.ttf') format('truetype');font-weight:700;font-display:swap}
+  @font-face{font-family:'DM Mono';src:url('assets/DMMono-Regular.ttf') format('truetype');font-weight:400;font-display:swap}
+  @font-face{font-family:'DM Mono';src:url('assets/DMMono-Medium.ttf') format('truetype');font-weight:500;font-display:swap}
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:#FAF7EF;color:#161513;font-family:Archivo,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+  ::selection{background:#E8451E;color:#fff}
+  a{color:inherit}
+  input::placeholder{color:rgba(255,255,255,.5)}
+</style>
+</helmet>
+
+<div style="min-height:100vh;display:flex;flex-direction:column;overflow-x:hidden">
+
+  <!-- NAV -->
+  <nav style="position:sticky;top:0;z-index:50;background:rgba(250,247,239,.92);backdrop-filter:blur(6px);border-bottom:2px dashed #161513;display:flex;align-items:center;justify-content:space-between;padding:16px clamp(20px,5vw,56px)">
+    <a href="Home.dc.html" style="font-family:'French Aperitif';font-weight:700;font-size:24px;text-decoration:none">i regret <span style="color:#E8451E">nothing</span></a>
+    <div style="display:flex;align-items:center;gap:clamp(14px,2.5vw,30px);font-family:'DM Mono';font-size:14px">
+      <a href="The Show.dc.html" style="text-decoration:none" style-hover="color:#E8451E">the show</a>
+      <a href="Team.dc.html" style="text-decoration:none;color:#E8451E;border-bottom:2px solid #E8451E;padding-bottom:2px">team</a>
+      <a href="Tickets.dc.html" style="text-decoration:none" style-hover="color:#E8451E">tickets</a>
+      <a href="Updates.dc.html" style="text-decoration:none" style-hover="color:#E8451E">updates</a>
+      <a href="Tickets.dc.html" style="text-decoration:none;background:#E8451E;color:#fff;padding:9px 18px;font-weight:500;transform:rotate(-2deg);display:inline-block" style-hover="transform:rotate(0deg)">get tickets!</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header style="max-width:1100px;margin:0 auto;width:100%;padding:clamp(40px,6vw,80px) clamp(20px,5vw,56px) clamp(16px,2vw,28px)">
+    <div style="font-family: 'DM Mono'; font-size: 13px; letter-spacing: .14em; text-transform: uppercase; color: #7c766a; margin-bottom: 16px; display: none">the team</div>
+    <h1 style="font-family:'French Aperitif';font-weight:700;font-size:clamp(40px,7vw,86px);line-height:.98;margin:0">Meet The Team</h1>
+  </header>
+
+  <!-- SARA -->
+  <section style="max-width:1100px;margin:0 auto;width:100%;padding:clamp(24px,3vw,44px) clamp(20px,5vw,56px)">
+    <div style="display:grid;grid-template-columns:clamp(240px,34%,380px) minmax(0,1fr);gap:clamp(28px,5vw,56px);align-items:center">
+      <div style="position:relative;transform:rotate(-1.5deg);justify-self:center">
+        <div style="position:absolute;top:-16px;left:50%;margin-left:-58px;width:116px;height:26px;background:rgba(232,69,30,.32);transform:rotate(-3deg);z-index:2"></div>
+        <div style="background:#fff;border:2px solid #161513;padding:14px 14px 10px;box-shadow:6px 8px 0 rgba(22,21,19,.14)">
+          <img src="assets/sara-headshot.jpg" alt="Sara Polon" style="display:block;width:100%;max-width:300px;aspect-ratio:3/4;object-fit:cover;object-position:center top">
+          
+        </div>
+      </div>
+      <div>
+        <div style="font-family:'French Aperitif';font-weight:700;font-size:clamp(38px,5vw,60px);line-height:1">Sara Polon</div>
+        <div style="font-family:'DM Mono';font-size:14px;color:#E8451E;margin:6px 0 18px">writer &amp; performer</div>
+        <p style="font-size:clamp(16px,1.4vw,19px);line-height:1.75;color:#2e2c27;margin:0 0 16px">Sara is an entrepreneur and the founder of Soupergirl, the DC-based fresh-food company she built from a farmers-market stand into a beloved local business. Before all that, she was a stand-up comic.</p>
+        <p style="font-size:clamp(16px,1.4vw,19px);line-height:1.75;color:#2e2c27;margin:0">Now she's coming back to the stage with the story she spent two decades living — about denial, shame, a man named Macho Gazpacho, and the long, funny road to regretting none of it.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ANNA -->
+  <section style="max-width:1100px;margin:0 auto;width:100%;padding:clamp(24px,3vw,44px) clamp(20px,5vw,56px) clamp(40px,5vw,72px)">
+    <div style="display:grid;grid-template-columns:clamp(240px,34%,380px) minmax(0,1fr);gap:clamp(28px,5vw,56px);align-items:center">
+      <div style="order:2">
+        <div style="font-family:'French Aperitif';font-weight:700;font-size:clamp(38px,5vw,60px);line-height:1">Anna Brosowsky</div>
+        <div style="font-family:'DM Mono';font-size:14px;color:#E8451E;margin:6px 0 18px">director &amp; producer</div>
+        <div style="font-size:clamp(16px,1.4vw,19px);line-height:1.75;color:#2e2c27;margin:0 0 16px"><p class="font-claude-response-body break-words whitespace-normal">Anna is director, producer and stage manager born and raised in Washington, D.C. She recently graduated from McGill University, where she served as President of the Arts Undergraduate Theatre Society, producing <em>Great Comet</em>, directing <em>Company</em>, and stage managing <em>Hair</em> and <em>Legally Blonde</em>. Back home, she trained at Studio Theatre and the Shakespeare Theatre Company, and helped lead the Teen Performance Company at Round House Theatre. She made her professional debut stage managing the world premiere of <em>Webster's Bitch</em> at Playhouse on Park in West Hartford, CT. Anna is a pro potluck-hostess and an amateur baseball-appreciator. She<span style="font-size: clamp(16px, 1.4vw, 19px);">&nbsp;is thrilled to bring</span><span style="font-size: clamp(16px, 1.4vw, 19px);"> </span><em style="font-size: clamp(16px, 1.4vw, 19px);">I Regret Nothing</em><span style="font-size: clamp(16px, 1.4vw, 19px);"> </span><span style="font-size: clamp(16px, 1.4vw, 19px);">to the stage.</span></p>
+<p class="font-claude-response-body break-words whitespace-normal"></p></div>
+        
+      </div>
+      <div style="order:0;position:relative;transform:rotate(1.5deg);justify-self:center">
+        <div style="position:absolute;top:-16px;left:50%;margin-left:-58px;width:116px;height:26px;background:rgba(232,69,30,.32);transform:rotate(3deg);z-index:2"></div>
+        <div style="background:#fff;border:2px solid #161513;padding:14px;box-shadow:6px 8px 0 rgba(22,21,19,.14)">
+          <div style="width:100%;max-width:300px">
+            <img src="assets/anna-headshot.jpg" alt="Anna Brosowsky" style="display:block;width:100%;aspect-ratio:3/4;object-fit:cover;object-position:center top">
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUOTE STRIP -->
+  <section style="background:#161513;color:#FAF7EF">
+    <div style="max-width:1000px;margin:0 auto;padding:clamp(44px,6vw,80px) clamp(20px,5vw,56px);text-align:center">
+      <div style="font-family:'French Aperitif';font-weight:700;font-size:clamp(26px,3.6vw,40px);line-height:1.25;max-width:22ch;margin:0 auto">"If one person leaves feeling less ashamed, the whole thing was worth it."</div>
+      <div style="font-family:'DM Mono';font-size:14px;color:#E8451E;margin-top:18px">— Sara Polon</div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer style="margin-top:auto;background:#FAF7EF;color:#161513;border-top:2px dashed #161513">
+    <div style="max-width:1240px;margin:0 auto;padding:clamp(40px,5vw,64px) clamp(20px,5vw,56px);display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:36px">
+      <div>
+        <div style="font-family:'French Aperitif';font-weight:700;font-size:28px;max-width:14ch">Don't regret missing it.</div>
+        <p style="font-family:'DM Mono';font-size:13px;color:#7c766a;margin:10px 0 16px">on-sale dates + show news, no spam.</p>
+        <div style="display:flex;border:2px solid #161513;max-width:360px">
+          <input placeholder="you@email.com" style="flex:1;border:none;background:transparent;color:#161513;padding:12px 14px;font-size:14px;outline:none;font-family:'DM Mono'">
+          <a href="Updates.dc.html" style="background:#E8451E;color:#fff;padding:12px 18px;font-family:'French Aperitif';font-weight:700;font-size:17px;text-decoration:none;display:flex;align-items:center">join!</a>
+        </div>
+      </div>
+      <div style="font-family:'DM Mono';font-size:14px;line-height:1.9">
+        <div style="color:#7c766a;text-transform:uppercase;letter-spacing:.12em;font-size:12px;margin-bottom:6px">the details</div>
+        September 1–3, 2026<br>National Union Building<br>918 F St NW, Washington, D.C.
+      </div>
+      <div style="font-family:'DM Mono';font-size:14px;line-height:1.9">
+        <div style="color:#7c766a;text-transform:uppercase;letter-spacing:.12em;font-size:12px;margin-bottom:6px">explore</div>
+        <a href="Home.dc.html" style="text-decoration:none;display:block" style-hover="color:#E8451E">home</a>
+        <a href="The Show.dc.html" style="text-decoration:none;display:block" style-hover="color:#E8451E">the show</a>
+        <a href="Tickets.dc.html" style="text-decoration:none;display:block" style-hover="color:#E8451E">tickets</a>
+        <a href="Updates.dc.html" style="text-decoration:none;display:block" style-hover="color:#E8451E">updates</a>
+      </div>
+    </div>
+    <div style="border-top:1px solid rgba(22,21,19,.15);padding:18px clamp(20px,5vw,56px);font-family:'DM Mono';font-size:12px;color:#7c766a">© 2026 I Regret Nothing · a show by Sara Polon</div>
+  </footer>
+
+</div>
+</x-dc>
+</body>
+</html>
