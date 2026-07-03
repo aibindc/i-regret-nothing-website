@@ -45,7 +45,7 @@
     <div style="display:grid;grid-template-columns:minmax(0,1fr) clamp(240px,30%,360px);gap:clamp(24px,5vw,56px);align-items:center">
       <div>
         <div style="font-family:'DM Mono';font-size:15px;color:#E8451E;margin-bottom:20px;transform:rotate(-1deg);display:inline-block">a one-woman show ↓</div>
-        <img src="assets/title.png" alt="I Regret Nothing — him, the debt, shame, the job, everything" style="width:100%;max-width:640px;display:block">
+        <img src="assets/title.png" alt="I Regret Nothing — him, the debt, shame, the business, everything" style="width:100%;max-width:640px;display:block">
         <div style="display:flex;flex-wrap:wrap;align-items:center;gap:18px;margin-top:clamp(26px,4vw,40px)">
           <a href="Tickets.dc.html" style="text-decoration:none;background:#E8451E;color:#fff;font-family:'French Aperitif';font-weight:700;font-size:22px;padding:14px 30px;transform:rotate(-1.5deg);display:inline-block;box-shadow:4px 5px 0 rgba(22,21,19,.9)" style-hover="transform:rotate(0deg) translateY(-1px)">grab tickets →</a>
           <div style="font-family:'DM Mono';font-size:15px;line-height:1.5">Sept 1–3, 2026<br><span style="color:#7c766a">Washington, D.C.</span></div>
@@ -64,9 +64,8 @@
 
   <!-- ===================== DATE MARQUEE ===================== -->
   <div style="background:#161513;color:#FAF7EF;overflow:hidden;white-space:nowrap;padding:12px 0">
-    <div style="display:inline-flex;gap:36px;align-items:center;font-family:'French Aperitif';font-weight:700;font-size:22px;padding-right:36px;animation:irn-marquee 26s linear infinite">
-      <span>SEPT 1–3 2026</span><span style="color:#E8451E">✦</span><span>NATIONAL UNION BUILDING</span><span style="color:#E8451E">✦</span><span>WASHINGTON D.C.</span><span style="color:#E8451E">✦</span>
-      <span>SEPT 1–3 2026</span><span style="color:#E8451E">✦</span><span>NATIONAL UNION BUILDING</span><span style="color:#E8451E">✦</span><span>WASHINGTON D.C.</span><span style="color:#E8451E">✦</span>
+    <div style="display:inline-block;white-space:nowrap;font-family:'French Aperitif';font-weight:700;font-size:22px;animation:irn-marquee 48s linear infinite">
+      <span style="padding-right:36px">SEPT 1–3 2026&nbsp;&nbsp;<span style="color:#E8451E">✦</span>&nbsp;&nbsp;NATIONAL UNION BUILDING&nbsp;&nbsp;<span style="color:#E8451E">✦</span>&nbsp;&nbsp;WASHINGTON D.C.&nbsp;&nbsp;<span style="color:#E8451E">✦</span></span><span style="padding-right:36px">SEPT 1–3 2026&nbsp;&nbsp;<span style="color:#E8451E">✦</span>&nbsp;&nbsp;NATIONAL UNION BUILDING&nbsp;&nbsp;<span style="color:#E8451E">✦</span>&nbsp;&nbsp;WASHINGTON D.C.&nbsp;&nbsp;<span style="color:#E8451E">✦</span></span><span style="padding-right:36px">SEPT 1–3 2026&nbsp;&nbsp;<span style="color:#E8451E">✦</span>&nbsp;&nbsp;NATIONAL UNION BUILDING&nbsp;&nbsp;<span style="color:#E8451E">✦</span>&nbsp;&nbsp;WASHINGTON D.C.&nbsp;&nbsp;<span style="color:#E8451E">✦</span></span><span style="padding-right:36px">SEPT 1–3 2026&nbsp;&nbsp;<span style="color:#E8451E">✦</span>&nbsp;&nbsp;NATIONAL UNION BUILDING&nbsp;&nbsp;<span style="color:#E8451E">✦</span>&nbsp;&nbsp;WASHINGTON D.C.&nbsp;&nbsp;<span style="color:#E8451E">✦</span></span><span style="padding-right:36px">SEPT 1–3 2026&nbsp;&nbsp;<span style="color:#E8451E">✦</span>&nbsp;&nbsp;NATIONAL UNION BUILDING&nbsp;&nbsp;<span style="color:#E8451E">✦</span>&nbsp;&nbsp;WASHINGTON D.C.&nbsp;&nbsp;<span style="color:#E8451E">✦</span></span><span style="padding-right:36px">SEPT 1–3 2026&nbsp;&nbsp;<span style="color:#E8451E">✦</span>&nbsp;&nbsp;NATIONAL UNION BUILDING&nbsp;&nbsp;<span style="color:#E8451E">✦</span>&nbsp;&nbsp;WASHINGTON D.C.&nbsp;&nbsp;<span style="color:#E8451E">✦</span></span>
     </div>
   </div>
 
@@ -130,10 +129,18 @@
       <div>
         <div style="font-family:'French Aperitif';font-weight:700;font-size:28px;max-width:14ch">Don't regret missing it.</div>
         <p style="font-family:'DM Mono';font-size:13px;color:rgba(250,247,239,.65);margin:10px 0 16px">on-sale dates + show news, no spam.</p>
-        <div style="display:flex;border:2px solid #FAF7EF;max-width:360px">
-          <input placeholder="you@email.com" style="flex:1;border:none;background:transparent;color:#FAF7EF;padding:12px 14px;font-size:14px;outline:none;font-family:'DM Mono'">
-          <a href="Updates.dc.html" style="background:#E8451E;color:#fff;padding:12px 18px;font-family:'French Aperitif';font-weight:700;font-size:17px;text-decoration:none;display:flex;align-items:center">join!</a>
-        </div>
+        <sc-if value="{{ footNotDone }}" hint-placeholder-val="{{ true }}">
+          <div>
+            <div style="display:flex;border:2px solid #FAF7EF;max-width:360px">
+              <input value="{{ footEmail }}" onInput="{{ onFootEmail }}" placeholder="you@email.com" style="flex:1;border:none;background:transparent;color:#FAF7EF;padding:12px 14px;font-size:14px;outline:none;font-family:'DM Mono'">
+              <button onClick="{{ footSubmit }}" style="background:#E8451E;color:#fff;border:none;padding:12px 18px;font-family:'French Aperitif';font-weight:700;font-size:17px;cursor:pointer">join!</button>
+            </div>
+            <div style="font-family:'DM Mono';font-size:12px;color:#E8451E;margin-top:8px;min-height:16px">{{ footHint }}</div>
+          </div>
+        </sc-if>
+        <sc-if value="{{ footDone }}" hint-placeholder-val="{{ false }}">
+          <div style="font-family:'French Aperitif';font-weight:700;font-size:24px;color:#FAF7EF;max-width:360px;line-height:1.1">You're on the list! ✓</div>
+        </sc-if>
       </div>
       <div style="font-family:'DM Mono';font-size:14px;line-height:1.9">
         <div style="color:rgba(250,247,239,.55);text-transform:uppercase;letter-spacing:.12em;font-size:12px;margin-bottom:6px">the details</div>
@@ -159,5 +166,31 @@
     <text x="600" y="510" font-family="Georgia,serif" font-style="italic" font-weight="700" font-size="150" fill="#E8451E" text-anchor="middle">Nothing</text>
   </svg>
 </template>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { footEmail: '', footDone: false, footHint: '' };
+  async componentDidMount() {
+    try { this._subscribe = (await import('./subscribe.js')).subscribe; } catch (e) {}
+  }
+  renderVals() {
+    const valid = (e) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e.trim());
+    return {
+      footEmail: this.state.footEmail,
+      footDone: this.state.footDone,
+      footNotDone: !this.state.footDone,
+      footHint: this.state.footHint,
+      onFootEmail: (e) => this.setState({ footEmail: e.target.value, footHint: '' }),
+      footSubmit: () => {
+        if (!valid(this.state.footEmail)) {
+          this.setState({ footHint: 'hmm, that email looks off — try again?' });
+        } else {
+          if (this._subscribe) this._subscribe(this.state.footEmail);
+          this.setState({ footDone: true, footHint: '' });
+        }
+      },
+    };
+  }
+}
+</script>
 </body>
 </html>

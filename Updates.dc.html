@@ -97,6 +97,10 @@
 class Component extends DCLogic {
   state = { email: '', subscribed: false, hint: '', bad: false };
 
+  async componentDidMount() {
+    try { this._subscribe = (await import('./subscribe.js')).subscribe; } catch (e) {}
+  }
+
   renderVals() {
     const valid = (e) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e.trim());
     return {
@@ -111,6 +115,7 @@ class Component extends DCLogic {
         if (!valid(this.state.email)) {
           this.setState({ hint: 'hmm, that email looks off — try again?', bad: true });
         } else {
+          if (this._subscribe) this._subscribe(this.state.email);
           this.setState({ subscribed: true });
         }
       },
@@ -118,5 +123,12 @@ class Component extends DCLogic {
   }
 }
 </script>
+<template id="__bundler_thumbnail" data-bg-color="#FAF7EF">
+  <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+    <rect width="1200" height="800" fill="#FAF7EF"/>
+    <text x="600" y="360" font-family="Georgia,serif" font-style="italic" font-weight="700" font-size="150" fill="#161513" text-anchor="middle">I Regret</text>
+    <text x="600" y="510" font-family="Georgia,serif" font-style="italic" font-weight="700" font-size="150" fill="#E8451E" text-anchor="middle">Nothing</text>
+  </svg>
+</template>
 </body>
 </html>

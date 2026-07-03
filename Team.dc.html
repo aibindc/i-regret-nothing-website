@@ -21,7 +21,7 @@
   body{margin:0;background:#FAF7EF;color:#161513;font-family:Archivo,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
   ::selection{background:#E8451E;color:#fff}
   a{color:inherit}
-  input::placeholder{color:rgba(255,255,255,.5)}
+  input::placeholder{color:#a8a196}
 </style>
 </helmet>
 
@@ -65,7 +65,7 @@
   </section>
 
   <!-- ANNA -->
-  <section style="max-width:1100px;margin:0 auto;width:100%;padding:clamp(24px,3vw,44px) clamp(20px,5vw,56px) clamp(40px,5vw,72px)">
+  <section style="max-width:1100px;margin:0 auto;width:100%;padding:clamp(24px,3vw,44px) clamp(20px,5vw,56px)">
     <div style="display:grid;grid-template-columns:clamp(240px,34%,380px) minmax(0,1fr);gap:clamp(28px,5vw,56px);align-items:center">
       <div style="order:2">
         <div style="font-family:'French Aperitif';font-weight:700;font-size:clamp(38px,5vw,60px);line-height:1">Anna Brosowsky</div>
@@ -86,6 +86,23 @@
     </div>
   </section>
 
+  <!-- LAURA -->
+  <section style="max-width:1100px;margin:0 auto;width:100%;padding:clamp(24px,3vw,44px) clamp(20px,5vw,56px) clamp(40px,5vw,72px)">
+    <div style="display:grid;grid-template-columns:clamp(240px,34%,380px) minmax(0,1fr);gap:clamp(28px,5vw,56px);align-items:center">
+      <div style="position:relative;transform:rotate(-1.5deg);justify-self:center">
+        <div style="position:absolute;top:-16px;left:50%;margin-left:-58px;width:116px;height:26px;background:rgba(232,69,30,.32);transform:rotate(-3deg);z-index:2"></div>
+        <div style="background:#fff;border:2px solid #161513;padding:14px 14px 10px;box-shadow:6px 8px 0 rgba(22,21,19,.14)">
+          <img src="assets/laura-headshot.png" alt="Laura Mae Schaeffer" style="display:block;width:100%;max-width:300px;aspect-ratio:3/4;object-fit:cover;object-position:center top">
+        </div>
+      </div>
+      <div>
+        <div style="font-family:'French Aperitif';font-weight:700;font-size:clamp(38px,5vw,60px);line-height:1">Laura Mae Schaeffer</div>
+        <div style="font-family:'DM Mono';font-size:14px;color:#E8451E;margin:6px 0 18px">graphic designer</div>
+        <p style="font-size:clamp(16px,1.4vw,19px);line-height:1.75;color:#2e2c27;margin:0">Bio coming soon.</p>
+      </div>
+    </div>
+  </section>
+
   <!-- QUOTE STRIP -->
   <section style="background:#161513;color:#FAF7EF">
     <div style="max-width:1000px;margin:0 auto;padding:clamp(44px,6vw,80px) clamp(20px,5vw,56px);text-align:center">
@@ -100,10 +117,18 @@
       <div>
         <div style="font-family:'French Aperitif';font-weight:700;font-size:28px;max-width:14ch">Don't regret missing it.</div>
         <p style="font-family:'DM Mono';font-size:13px;color:#7c766a;margin:10px 0 16px">on-sale dates + show news, no spam.</p>
-        <div style="display:flex;border:2px solid #161513;max-width:360px">
-          <input placeholder="you@email.com" style="flex:1;border:none;background:transparent;color:#161513;padding:12px 14px;font-size:14px;outline:none;font-family:'DM Mono'">
-          <a href="Updates.dc.html" style="background:#E8451E;color:#fff;padding:12px 18px;font-family:'French Aperitif';font-weight:700;font-size:17px;text-decoration:none;display:flex;align-items:center">join!</a>
-        </div>
+        <sc-if value="{{ footNotDone }}" hint-placeholder-val="{{ true }}">
+          <div>
+            <div style="display:flex;border:2px solid #161513;max-width:360px">
+              <input value="{{ footEmail }}" onInput="{{ onFootEmail }}" placeholder="you@email.com" style="flex:1;border:none;background:transparent;color:#161513;padding:12px 14px;font-size:14px;outline:none;font-family:'DM Mono'">
+              <button onClick="{{ footSubmit }}" style="background:#E8451E;color:#fff;border:none;padding:12px 18px;font-family:'French Aperitif';font-weight:700;font-size:17px;cursor:pointer">join!</button>
+            </div>
+            <div style="font-family:'DM Mono';font-size:12px;color:#E8451E;margin-top:8px;min-height:16px">{{ footHint }}</div>
+          </div>
+        </sc-if>
+        <sc-if value="{{ footDone }}" hint-placeholder-val="{{ false }}">
+          <div style="font-family:'French Aperitif';font-weight:700;font-size:24px;color:#161513;max-width:360px;line-height:1.1">You're on the list! ✓</div>
+        </sc-if>
       </div>
       <div style="font-family:'DM Mono';font-size:14px;line-height:1.9">
         <div style="color:#7c766a;text-transform:uppercase;letter-spacing:.12em;font-size:12px;margin-bottom:6px">the details</div>
@@ -122,5 +147,38 @@
 
 </div>
 </x-dc>
+<template id="__bundler_thumbnail" data-bg-color="#FAF7EF">
+  <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+    <rect width="1200" height="800" fill="#FAF7EF"/>
+    <text x="600" y="360" font-family="Georgia,serif" font-style="italic" font-weight="700" font-size="150" fill="#161513" text-anchor="middle">I Regret</text>
+    <text x="600" y="510" font-family="Georgia,serif" font-style="italic" font-weight="700" font-size="150" fill="#E8451E" text-anchor="middle">Nothing</text>
+  </svg>
+</template>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { footEmail: '', footDone: false, footHint: '' };
+  async componentDidMount() {
+    try { this._subscribe = (await import('./subscribe.js')).subscribe; } catch (e) {}
+  }
+  renderVals() {
+    const valid = (e) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e.trim());
+    return {
+      footEmail: this.state.footEmail,
+      footDone: this.state.footDone,
+      footNotDone: !this.state.footDone,
+      footHint: this.state.footHint,
+      onFootEmail: (e) => this.setState({ footEmail: e.target.value, footHint: '' }),
+      footSubmit: () => {
+        if (!valid(this.state.footEmail)) {
+          this.setState({ footHint: 'hmm, that email looks off — try again?' });
+        } else {
+          if (this._subscribe) this._subscribe(this.state.footEmail);
+          this.setState({ footDone: true, footHint: '' });
+        }
+      },
+    };
+  }
+}
+</script>
 </body>
 </html>
