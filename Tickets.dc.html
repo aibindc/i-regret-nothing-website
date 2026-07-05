@@ -22,15 +22,22 @@
   ::selection{background:#E8451E;color:#fff}
   a{color:inherit}
   input::placeholder{color:#a8a196}
+  @media (max-width:760px){
+    .irn-nav{flex-direction:column;align-items:center;gap:12px}
+    .irn-navlinks{flex-wrap:wrap;justify-content:center;gap:10px 16px;font-size:13px}
+  }
+  @media (max-width:460px){
+    .irn-navlinks{font-size:12px;gap:8px 12px}
+  }
 </style>
 </helmet>
 
 <div style="min-height:100vh;display:flex;flex-direction:column;overflow-x:hidden">
 
   <!-- NAV -->
-  <nav style="position:sticky;top:0;z-index:50;background:rgba(250,247,239,.92);backdrop-filter:blur(6px);border-bottom:2px dashed #161513;display:flex;align-items:center;justify-content:space-between;padding:16px clamp(20px,5vw,56px)">
+  <nav class="irn-nav" style="position:sticky;top:0;z-index:50;background:rgba(250,247,239,.92);backdrop-filter:blur(6px);border-bottom:2px dashed #161513;display:flex;align-items:center;justify-content:space-between;padding:16px clamp(20px,5vw,56px)">
     <a href="Home.dc.html" style="font-family:'French Aperitif';font-weight:700;font-size:24px;text-decoration:none">i regret <span style="color:#E8451E">nothing</span></a>
-    <div style="display:flex;align-items:center;gap:clamp(14px,2.5vw,30px);font-family:'DM Mono';font-size:14px">
+    <div class="irn-navlinks" style="display:flex;align-items:center;gap:clamp(14px,2.5vw,30px);font-family:'DM Mono';font-size:14px">
       <a href="The Show.dc.html" style="text-decoration:none" style-hover="color:#E8451E">the show</a>
       <a href="Team.dc.html" style="text-decoration:none" style-hover="color:#E8451E">team</a>
       <a href="Tickets.dc.html" style="text-decoration:none;color:#E8451E;border-bottom:2px solid #E8451E;padding-bottom:2px">tickets</a>

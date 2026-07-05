@@ -23,15 +23,25 @@
   a{color:inherit}
   input::placeholder{color:rgba(255,255,255,.5)}
   @keyframes irn-marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+  @media (max-width:760px){
+    .irn-nav{flex-direction:column;align-items:center;gap:12px}
+    .irn-navlinks{flex-wrap:wrap;justify-content:center;gap:10px 16px;font-size:13px}
+    .irn-stack{grid-template-columns:1fr !important;gap:32px !important}
+    .irn-stack-quote{margin-top:0 !important;transform:none !important;text-align:left}
+    .irn-marquee-txt{font-size:18px !important}
+  }
+  @media (max-width:460px){
+    .irn-navlinks{font-size:12px;gap:8px 12px}
+  }
 </style>
 </helmet>
 
 <div style="min-height:100vh;display:flex;flex-direction:column;overflow-x:hidden">
 
   <!-- ===================== NAV ===================== -->
-  <nav style="position:sticky;top:0;z-index:50;background:rgba(250,247,239,.92);backdrop-filter:blur(6px);border-bottom:2px dashed #161513;display:flex;align-items:center;justify-content:space-between;padding:16px clamp(20px,5vw,56px)">
+  <nav class="irn-nav" style="position:sticky;top:0;z-index:50;background:rgba(250,247,239,.92);backdrop-filter:blur(6px);border-bottom:2px dashed #161513;display:flex;align-items:center;justify-content:space-between;padding:16px clamp(20px,5vw,56px)">
     <a href="Home.dc.html" style="font-family:'French Aperitif';font-weight:700;font-size:24px;text-decoration:none;letter-spacing:.01em">i regret <span style="color:#E8451E">nothing</span></a>
-    <div style="display:flex;align-items:center;gap:clamp(14px,2.5vw,30px);font-family:'DM Mono';font-size:14px">
+    <div class="irn-navlinks" style="display:flex;align-items:center;gap:clamp(14px,2.5vw,30px);font-family:'DM Mono';font-size:14px">
       <a href="The Show.dc.html" style="text-decoration:none" style-hover="color:#E8451E">the show</a>
       <a href="Team.dc.html" style="text-decoration:none" style-hover="color:#E8451E">team</a>
       <a href="Tickets.dc.html" style="text-decoration:none" style-hover="color:#E8451E">tickets</a>
@@ -42,7 +52,7 @@
 
   <!-- ===================== HERO ===================== -->
   <header style="position:relative;padding:clamp(36px,6vw,72px) clamp(20px,5vw,56px) clamp(30px,4vw,52px);max-width:1240px;margin:0 auto;width:100%">
-    <div style="display:grid;grid-template-columns:minmax(0,1fr) clamp(240px,30%,360px);gap:clamp(24px,5vw,56px);align-items:center">
+    <div class="irn-stack" style="display:grid;grid-template-columns:minmax(0,1fr) clamp(240px,30%,360px);gap:clamp(24px,5vw,56px);align-items:center">
       <div>
         <div style="font-family:'DM Mono';font-size:15px;color:#E8451E;margin-bottom:20px;transform:rotate(-1deg);display:inline-block">a one-woman show ↓</div>
         <img src="assets/title.png" alt="I Regret Nothing — him, the debt, shame, the business, everything" style="width:100%;max-width:640px;display:block">
@@ -64,21 +74,21 @@
 
   <!-- ===================== DATE MARQUEE ===================== -->
   <div style="background:#161513;color:#FAF7EF;overflow:hidden;white-space:nowrap;padding:12px 0">
-    <div style="display:inline-block;white-space:nowrap;font-family:'French Aperitif';font-weight:700;font-size:22px;animation:irn-marquee 48s linear infinite">
+    <div class="irn-marquee-txt" style="display:inline-block;white-space:nowrap;font-family:'French Aperitif';font-weight:700;font-size:22px;animation:irn-marquee 48s linear infinite">
       <span style="padding-right:36px">SEPT 1–3 2026&nbsp;&nbsp;<span style="color:#E8451E">✦</span>&nbsp;&nbsp;NATIONAL UNION BUILDING&nbsp;&nbsp;<span style="color:#E8451E">✦</span>&nbsp;&nbsp;WASHINGTON D.C.&nbsp;&nbsp;<span style="color:#E8451E">✦</span></span><span style="padding-right:36px">SEPT 1–3 2026&nbsp;&nbsp;<span style="color:#E8451E">✦</span>&nbsp;&nbsp;NATIONAL UNION BUILDING&nbsp;&nbsp;<span style="color:#E8451E">✦</span>&nbsp;&nbsp;WASHINGTON D.C.&nbsp;&nbsp;<span style="color:#E8451E">✦</span></span><span style="padding-right:36px">SEPT 1–3 2026&nbsp;&nbsp;<span style="color:#E8451E">✦</span>&nbsp;&nbsp;NATIONAL UNION BUILDING&nbsp;&nbsp;<span style="color:#E8451E">✦</span>&nbsp;&nbsp;WASHINGTON D.C.&nbsp;&nbsp;<span style="color:#E8451E">✦</span></span><span style="padding-right:36px">SEPT 1–3 2026&nbsp;&nbsp;<span style="color:#E8451E">✦</span>&nbsp;&nbsp;NATIONAL UNION BUILDING&nbsp;&nbsp;<span style="color:#E8451E">✦</span>&nbsp;&nbsp;WASHINGTON D.C.&nbsp;&nbsp;<span style="color:#E8451E">✦</span></span><span style="padding-right:36px">SEPT 1–3 2026&nbsp;&nbsp;<span style="color:#E8451E">✦</span>&nbsp;&nbsp;NATIONAL UNION BUILDING&nbsp;&nbsp;<span style="color:#E8451E">✦</span>&nbsp;&nbsp;WASHINGTON D.C.&nbsp;&nbsp;<span style="color:#E8451E">✦</span></span><span style="padding-right:36px">SEPT 1–3 2026&nbsp;&nbsp;<span style="color:#E8451E">✦</span>&nbsp;&nbsp;NATIONAL UNION BUILDING&nbsp;&nbsp;<span style="color:#E8451E">✦</span>&nbsp;&nbsp;WASHINGTON D.C.&nbsp;&nbsp;<span style="color:#E8451E">✦</span></span>
     </div>
   </div>
 
   <!-- ===================== THE SHOW ===================== -->
   <section style="max-width:1240px;margin:0 auto;width:100%;padding:clamp(44px,6vw,84px) clamp(20px,5vw,56px)">
-    <div style="display:grid;grid-template-columns:minmax(0,1fr) clamp(220px,26%,300px);gap:clamp(28px,5vw,56px);align-items:start">
+    <div class="irn-stack" style="display:grid;grid-template-columns:minmax(0,1fr) clamp(220px,26%,300px);gap:clamp(28px,5vw,56px);align-items:start">
       <div>
         <div style="font-family:'DM Mono';font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:#7c766a;margin-bottom:14px">the show</div>
         <h2 style="font-family:'French Aperitif';font-weight:700;font-size:clamp(34px,5vw,54px);line-height:1.02;margin:0 0 22px;max-width:16ch">A story about the things we put up with.</h2>
         <p style="font-size:clamp(16px,1.4vw,19px);line-height:1.75;max-width:60ch;color:#2e2c27;margin:0 0 18px">It's about the things people tolerate in relationships they never should've been in — and the shame that lingers long after. Sara's bet is simple: tell the truth out loud, and maybe everyone in the room feels a little less alone, and a lot less ashamed of things that were never theirs to carry.</p>
         <a href="The Show.dc.html" style="font-family:'DM Mono';font-size:15px;color:#E8451E;text-decoration:none;border-bottom:2px solid #E8451E;padding-bottom:2px">read what it's really about →</a>
       </div>
-      <div style="font-family:'French Aperitif';font-size:19px;line-height:1.35;color:#E8451E;transform:rotate(1.5deg);border-left:3px solid #E8451E;padding:4px 0 4px 16px;margin-top:36px">his name in her phone was <span style="font-weight:700">"Macho Gazpacho."</span> that's all you need to know.</div>
+      <div class="irn-stack-quote" style="font-family:'French Aperitif';font-size:19px;line-height:1.35;color:#E8451E;transform:rotate(1.5deg);border-left:3px solid #E8451E;padding:4px 0 4px 16px;margin-top:36px">his name in her phone was <span style="font-weight:700">"Macho Gazpacho."</span> that's all you need to know.</div>
     </div>
   </section>
 
